@@ -6,11 +6,8 @@ import {
   colors,
   hideScrollBar,
   marginBottom100,
-  padding20,
 } from '../../assets/styles/staticStyle';
-import MyCarousel, {
-  SliderComponent,
-} from '../../assets/components/SliderComponent';
+import {SliderComponent} from '../../assets/components/SliderComponent';
 import {carouselData} from '../../assets/external/StaticData';
 import {ProductComponent} from '../../assets/components/ProductComponent';
 import {FindCustomer} from '../../assets/components/FindCustomer';
