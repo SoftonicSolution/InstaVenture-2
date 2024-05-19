@@ -18,6 +18,8 @@ import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Profile} from '../../screens/guest/Profile';
 import {Wallet} from '../../screens/guest/Wallet';
+import HomeStackNavigation from './HomeStackNavigation';
+import {Login} from '../../screens/guest/Login';
 
 const Tab = createBottomTabNavigator();
 
@@ -44,7 +46,7 @@ const BottomTabView = ({iconName, label, focused}) => {
         resizeMode="contain"
         color={'red'}
         style={{
-          fontSize: fontMdSize.fontSize,
+          fontSize: focused ? fontMdSize.fontSize : fontSmSize.fontSize,
           color: focused ? colors.primaryDark : colors.greyText,
         }}
       />
@@ -64,10 +66,10 @@ const BottomTabNavigation = () => {
     <Tab.Navigator screenOptions={screenOptions}>
       <Tab.Screen
         name="DrawerHome"
-        component={Home}
+        component={HomeStackNavigation}
         options={{
           tabBarIcon: ({focused}) => (
-            <BottomTabView iconName="home" label="home" focused={focused} />
+            <BottomTabView iconName="home" label="Home" focused={focused} />
           ),
         }}
       />
@@ -84,7 +86,7 @@ const BottomTabNavigation = () => {
           ),
         }}
       />
-      {/* <Tab.Screen
+      <Tab.Screen
         name="Search"
         component={Home}
         options={{
@@ -94,25 +96,29 @@ const BottomTabNavigation = () => {
                 style={{
                   alignItems: 'center',
                   justifyContent: 'center',
-                  backgroundColor: focused
-                    ? colors.primaryDark
-                    : colors.primaryDark,
-                  height: Platform.OS === 'ios' ? 70 : 60,
-                  width: Platform.OS === 'ios' ? 70 : 60,
-                  top: Platform.OS === 'ios' ? -20 : -30,
-                  borderRadius: Platform.OS === 'ios' ? 35 : 30,
+                  backgroundColor: colors.primaryDark,
+                  height: 50,
+                  width: 50,
+                  top: -20,
+                  borderRadius: 100,
                   borderWidth: 2,
                   borderColor: colors.primaryDark,
                 }}>
-                <Icon
-                  name="view-grid"
-                  size={fontXlLgSize.fontSize}
-                  color={focused ? colors.white : colors.greyText}
+                <FontAwesome5Icon
+                  name={'th'}
+                  resizeMode="contain"
+                  color={'red'}
+                  style={{
+                    fontSize: focused
+                      ? fontMdSize.fontSize
+                      : fontSmSize.fontSize,
+                    color: colors.white,
+                  }}
                 />
                 <Text
                   style={[
-                    bodyText,
-                    {color: focused ? colors.white : colors.greyText},
+                    {fontSize: fontSize10.fontSize},
+                    {color: colors.white},
                   ]}>
                   Sell
                 </Text>
@@ -120,9 +126,9 @@ const BottomTabNavigation = () => {
             );
           },
         }}
-      /> */}
+      />
 
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Message"
         component={Wallet}
         options={{
@@ -130,7 +136,7 @@ const BottomTabNavigation = () => {
             <BottomTabView iconName="th" label="Sell" focused={focused} />
           ),
         }}
-      />
+      /> */}
       <Tab.Screen
         name="Wall"
         component={Wallet}
@@ -145,8 +151,8 @@ const BottomTabNavigation = () => {
         }}
       />
       <Tab.Screen
-        name="Profile"
-        component={Home}
+        name="Login"
+        component={Login}
         options={{
           tabBarIcon: ({focused}) => (
             <BottomTabView

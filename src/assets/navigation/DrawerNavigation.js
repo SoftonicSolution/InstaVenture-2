@@ -14,23 +14,24 @@ const DrawerNavigation = () => {
   return (
     <Drawer.Navigator
       screenOptions={{
-        drawerStyle: {
-          backgroundColor: colors.white,
-          width: 250,
-        },
-        headerStyle: {
-          backgroundColor: colors.white,
-        },
+        swipeEnabled: false,
         headerShown: false,
-        headerTintColor: colors.black,
-        drawerLabelStyle: {
-          color: colors.black,
-          fontSize: 14,
-          marginLeft: -10,
-        },
+        // drawerStyle: {
+        //   backgroundColor: colors.white,
+        //   width: 250,
+        // },
+        // headerStyle: {
+        //   backgroundColor: colors.white,
+        // },
+        // headerTintColor: colors.black,
+        // drawerLabelStyle: {
+        //   color: colors.black,
+        //   fontSize: 14,
+        //   marginLeft: -10,
+        // },
       }}>
       <Drawer.Screen
-        name="Home"
+        name="HomeScreen"
         options={{
           drawerLabel: 'Home',
           title: 'Home',
@@ -44,7 +45,7 @@ const DrawerNavigation = () => {
         }}
         component={BottomTabNavigation}
       />
-      <Drawer.Screen
+      {/* <Drawer.Screen
         name="Orders"
         options={{
           drawerLabel: 'Wallet',
@@ -73,7 +74,7 @@ const DrawerNavigation = () => {
           },
         }}
         component={Profile}
-      />
+      /> */}
     </Drawer.Navigator>
   );
 };
